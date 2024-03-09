@@ -20,7 +20,7 @@ window.onload = async function () {
   var dsFrame = document.getElementById("docusign-iframe");
 
   message =
-    "Connect your demo account <a href='https://account-d.docusign.com/oauth/auth?response_type=token&scope=signature cors&client_id=ac4f43c8-49ef-4665-ae45-978983eea3b7&redirect_uri=http://localhost:5500/third-party.html'>here</a>";
+    "Connect your demo account <a href='https://account-d.docusign.com/oauth/auth?response_type=token&scope=signature cors&client_id=ac4f43c8-49ef-4665-ae45-978983eea3b7&redirect_uri=https://renanadstest.github.io/3pc/third-party.html'>here</a>";
 
   if (!!token) {
     await docusign.auth(token).config({ debug: true });
