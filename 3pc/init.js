@@ -20,7 +20,7 @@ window.onload = async function () {
   var dsFrame = document.getElementById("docusign-iframe");
 
   var currPath = window.location.pathname;
-  var currHost = window.location.hostname == "127.0.0.1" ? "localhost:" + window.location.port : window.location.hostname;
+  var currHost = window.location.hostname == "127.0.0.1" || "localhost" ? `${window.location.hostname}:${window.location.port}` : window.location.hostname;
   var currProt = window.location.protocol;
 
   message = `Connect your demo account <a href='https://account-d.docusign.com/oauth/auth?response_type=token&scope=signature cors&client_id=ac4f43c8-49ef-4665-ae45-978983eea3b7&redirect_uri=${currProt}//${currHost}${currPath}'>here</a>`;

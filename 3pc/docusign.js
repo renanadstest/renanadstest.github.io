@@ -51,6 +51,16 @@ var docusign = {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            documents: [
+              {
+                documentId: 1,
+                htmlDefinition: {
+                  source: "<html><h2>Probably you are seeing a content here. I hope so.</h2></html>"
+                },
+                name: "3PC Document Test",
+                fileFormat: "html"
+              }
+            ],
             emailSubject: "Third-Party Cookies (test envelope)",
             status: "created",
           }),
