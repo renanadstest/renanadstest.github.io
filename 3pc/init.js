@@ -19,8 +19,11 @@ window.onload = async function () {
   var dsStatus = document.getElementById("docusign-status");
   var dsFrame = document.getElementById("docusign-iframe");
 
-  message =
-    "Connect your demo account <a href='https://account-d.docusign.com/oauth/auth?response_type=token&scope=signature cors&client_id=ac4f43c8-49ef-4665-ae45-978983eea3b7&redirect_uri=https://renanadstest.github.io/3pc/third-party.html'>here</a>";
+  var currPath = window.location.pathname;
+  var currHost = window.location.hostname == "127.0.0.1" ? "localhost:" + window.location.port : window.location.hostname;
+  var currProt = window.location.protocol;
+
+  message = `Connect your demo account <a href='https://account-d.docusign.com/oauth/auth?response_type=token&scope=signature cors&client_id=ac4f43c8-49ef-4665-ae45-978983eea3b7&redirect_uri=${currProt}//${currHost}${currPath}'>here</a>`;
 
   if (!!token) {
     await docusign.auth(token).config({ debug: true });
@@ -62,6 +65,9 @@ window.onload = async function () {
       console.log("Voiding envelope...");
       await docusign.envelope(envelopeId).void();
       envelopeVoided = true;
+      voidBtn.disabled = true;
+      voidBtn.innerHTML = "<h2>Envelope voided. Please refresh page.<h2>"
+
     });
   }
 
